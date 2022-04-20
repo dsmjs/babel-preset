@@ -37,7 +37,7 @@
     "@dsmjs/eslint-config": "1.0.100",
     "@dsmjs/eslint-config-mocha": "1.0.22",
     "@form8ion/commitlint-config": "^1.0.7",
-    "@form8ion/remark-lint-preset": "2.1.7",
+    "@form8ion/remark-lint-preset": "3.0.0",
     "@travi/any": "^2.0.6",
     "ban-sensitive-files": "^1.9.2",
     "chai": "^4.2.0",
