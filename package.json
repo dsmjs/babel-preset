@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@babel/register": "^7.6.2",
-    "@dsmjs/eslint-config": "1.0.110",
+    "@dsmjs/eslint-config": "1.0.111",
     "@dsmjs/eslint-config-mocha": "1.0.27",
     "@form8ion/commitlint-config": "^1.0.7",
     "@form8ion/remark-lint-preset": "4.0.2",
