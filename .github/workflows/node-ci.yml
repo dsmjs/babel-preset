@@ -42,9 +42,11 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm install --save-dev semantic-release semantic-release-github-pr
-      - run: DEBUG=semantic-release:* npx semantic-release-github-pr
+      - uses: snyk/release-notes-preview@v1.6.1
+        with:
+          releaseBranch: master
         env:
+          GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   automerge:
     needs:
