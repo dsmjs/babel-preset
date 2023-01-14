@@ -42,7 +42,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm install --save-dev semantic-release semantic-release-github-pr@6.0.0
+      - run: npm install --save-dev semantic-release semantic-release-github-pr
       - run: DEBUG=semantic-release:* npx semantic-release-github-pr
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
