@@ -9,7 +9,7 @@ Shareable [Babel](https://babeljs.io)
 
 <!--status-badges end -->
 
-## Usage
+## Usage 1
 
 <!--consumer-badges start -->
 
