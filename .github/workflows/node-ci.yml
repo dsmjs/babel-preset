@@ -37,14 +37,18 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: .nvmrc
           cache: npm
-      - run: npm install --save-dev semantic-release semantic-release-github-pr@6.0.0
-      - run: DEBUG=semantic-release:* npx semantic-release-github-pr
+      - uses: snyk/release-notes-preview@v1.6.1
+        with:
+          releaseBranch: master
         env:
+          GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   automerge:
     needs:
