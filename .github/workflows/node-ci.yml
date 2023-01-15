@@ -5,6 +5,7 @@ name: Node.js CI
       - master
       - alpha
       - beta
+      - release-preview-experiments
       - 'dependabot/**'
   pull_request:
     types:
