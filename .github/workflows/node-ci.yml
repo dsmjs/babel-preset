@@ -44,12 +44,10 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - uses: snyk/release-notes-preview@v1.6.1
-        with:
-          releaseBranch: master
+      - run: npx semantic-release --dry-run
         env:
-          GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   automerge:
     needs:
       - verify
