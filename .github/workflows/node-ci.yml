@@ -51,11 +51,11 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-          Below is a preview of the release notes if your PR gets merged.
+            Below is a preview of the release notes if your PR gets merged.
 
-          ---
+            ---
 
-          ${{ steps.release-notes-preview.outputs.releaseNotes }}
+            ${{ steps.release-notes-preview.outputs.releaseNotes }}
       - run: unset GITHUB_ACTIONS
       - run: npx semantic-release --dry-run --no-ci --branches=master --debug
         env:
