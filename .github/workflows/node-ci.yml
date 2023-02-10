@@ -43,6 +43,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - run: unset GITHUB_ACTIONS
       - run: npx semantic-release --dry-run --no-ci --branches=master --branches="${{ github.ref }}" --debug
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
