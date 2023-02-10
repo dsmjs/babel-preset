@@ -56,8 +56,7 @@ jobs:
             ---
 
             ${{ steps.release-notes-preview.outputs.releaseNotes }}
-      - run: unset GITHUB_ACTIONS
-      - run: npx semantic-release --dry-run --no-ci --branches=master --debug
+      - run: unset GITHUB_ACTIONS && npx semantic-release --dry-run --no-ci --branches=master --debug
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
