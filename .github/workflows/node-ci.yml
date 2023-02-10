@@ -43,6 +43,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - run: npm clean-install
       - name: Generate release notes
         id: release-notes-preview
         uses: guilhermetod/semantic-release-notes-preview@v1.0.0
