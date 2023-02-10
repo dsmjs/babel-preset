@@ -5,6 +5,7 @@ name: Node.js CI
       - master
       - alpha
       - beta
+      - release-preview-experiments
       - 'dependabot/**'
   pull_request:
     types:
@@ -36,20 +37,30 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v3
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
           cache: npm
-      - uses: snyk/release-notes-preview@v1.6.1
+      - run: npm clean-install
+      - name: Generate release notes
+        id: release-notes-preview
+        uses: guilhermetod/semantic-release-notes-preview@v1.0.0
+      - name: Comment release notes preview
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          releaseBranch: master
+          issue-number: ${{ github.event.number }}
+          body: |
+            Below is a preview of the release notes if your PR gets merged.
+
+            ---
+
+            ${{ steps.release-notes-preview.outputs.releaseNotes }}
+      - run: npx semantic-release --dry-run --no-ci --branches=master --debug
         env:
-          GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
   automerge:
     needs:
       - verify
