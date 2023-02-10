@@ -43,6 +43,19 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - name: Generate release notes
+        id: release-notes-preview
+        uses: guilhermetod/semantic-release-notes-preview@v1.0.0
+      - name: Comment release notes preview
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+          Below is a preview of the release notes if your PR gets merged.
+
+          ---
+
+          ${{ steps.release-notes-preview.outputs.releaseNotes }}
       - run: unset GITHUB_ACTIONS
       - run: npx semantic-release --dry-run --no-ci --branches=master --debug
         env:
