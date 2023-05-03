@@ -10,7 +10,8 @@
     "lib/"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": "dsmjs/babel-preset",
   "bugs": "https://github.com/dsmjs/babel-preset/issues",
