@@ -55,6 +55,6 @@
     "sinon": "^15.0.0"
   },
   "dependencies": {
-    "@form8ion/babel-preset": "1.6.103"
+    "@form8ion/babel-preset": "1.6.104"
   }
 }
