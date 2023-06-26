@@ -3,20 +3,13 @@
   "description": "Shareable babel preset for the organization",
   "license": "MIT",
   "version": "0.0.0-semantically-released",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.es.js",
-  "sideEffects": false,
-  "files": [
-    "lib/"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
+  "author": "dsmJS <maintainers@dsmjs.com> (https://dsmjs.com)",
   "repository": "dsmjs/babel-preset",
   "bugs": "https://github.com/dsmjs/babel-preset/issues",
   "homepage": "https://npm.im/@dsmjs/babel-preset",
-  "author": "dsmJS <maintainers@dsmjs.com> (https://dsmjs.com)",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
+  "sideEffects": false,
   "scripts": {
     "pretest": "run-s build",
     "test": "npm-run-all --print-label --parallel lint:* --parallel test:*",
@@ -33,6 +26,16 @@
     "prepack": "run-s build",
     "prepare": "husky install",
     "lint:publish": "publint"
+  },
+  "files": [
+    "lib/"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "@form8ion/babel-preset": "1.6.104"
   },
   "devDependencies": {
     "@babel/register": "^7.6.2",
@@ -55,8 +58,5 @@
     "rollup": "^3.1.0",
     "rollup-plugin-auto-external": "^2.0.0",
     "sinon": "^15.0.0"
-  },
-  "dependencies": {
-    "@form8ion/babel-preset": "1.6.104"
   }
 }
