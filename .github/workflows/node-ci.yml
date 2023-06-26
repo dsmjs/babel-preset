@@ -28,7 +28,13 @@ jobs:
       - name: Upload coverage data to Codecov
         run: 'npm run coverage:report'
   release:
-    needs: verify
+    needs:
+      - verify
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
     uses: form8ion/.github/.github/workflows/release-package.yml@master
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
@@ -62,3 +68,5 @@ jobs:
       - uses: fastify/github-action-merge-dependabot@v3
         with:
           github-token: ${{ secrets.GH_PAT }}
+permissions:
+  contents: read
