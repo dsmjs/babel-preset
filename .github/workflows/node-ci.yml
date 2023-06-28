@@ -37,28 +37,9 @@ jobs:
     uses: form8ion/.github/.github/workflows/release-package.yml@master
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-  release-preview:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-      - uses: snyk/release-notes-preview@v1.6.1
-        with:
-          releaseBranch: master
-        env:
-          GITHUB_PR_USERNAME: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   automerge:
     needs:
       - verify
-      - release-preview
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
