@@ -45,7 +45,7 @@
     "@travi/any": "^3.0.0",
     "ban-sensitive-files": "^1.9.2",
     "c8": "9.1.0",
-    "chai": "^4.2.0",
+    "chai": "^5.1.0",
     "commitlint-config-dsmjs": "1.0.51",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "^3.0.2",
