@@ -41,7 +41,7 @@
     "@babel/register": "^7.6.2",
     "@dsmjs/eslint-config": "1.0.118",
     "@dsmjs/eslint-config-mocha": "1.0.30",
-    "@form8ion/remark-lint-preset": "6.0.2",
+    "@form8ion/remark-lint-preset": "6.0.3",
     "@travi/any": "^3.0.0",
     "ban-sensitive-files": "^1.9.2",
     "c8": "9.1.0",
