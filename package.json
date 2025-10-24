@@ -35,7 +35,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@form8ion/babel-preset": "1.6.149"
+    "@form8ion/babel-preset": "1.6.150"
   },
   "devDependencies": {
     "@babel/register": "^7.6.2",
